@@ -2,6 +2,7 @@ services:
   - type: web
     name: signalsort-api
     env: docker
+    plan: free
     rootDir: backend
     healthCheckPath: /health
     envVars:
