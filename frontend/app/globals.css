@@ -1,2 +1,117 @@
-@tailwind base;@tailwind components;@tailwind utilities;
-*{box-sizing:border-box}body{@apply bg-slate-950 text-slate-100}input,textarea,select{@apply w-full rounded-lg border border-slate-700 bg-slate-900 p-2 text-sm}button{@apply rounded-lg px-3 py-2 font-medium transition}button:disabled{@apply opacity-50}.card{@apply rounded-xl border border-slate-800 bg-slate-900/80 p-4 shadow-lg}.primary{@apply bg-cyan-500 text-slate-950 hover:bg-cyan-400}.muted{@apply text-slate-400}.badge{@apply rounded-full px-2 py-1 text-xs font-bold}
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0d10;
+  --surface: #12161b;
+  --surface-2: #1a2027;
+  --border: #242c35;
+  --text: #e8ecef;
+  --muted: #8a96a3;
+  --accent: #c6f432;
+  --accent-ink: #0b0d10;
+  --warn: #ffb547;
+  --info: #5cc8ff;
+  --violet: #b79cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input,
+textarea,
+select {
+  @apply w-full rounded-[10px] border px-3 py-2 text-base outline-none transition;
+  min-height: 44px;
+  border-color: var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+input[type="range"] {
+  accent-color: var(--accent);
+  min-height: auto;
+  padding: 0;
+}
+
+.mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.card {
+  @apply rounded-2xl border p-4;
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.panel {
+  @apply rounded-2xl border p-4;
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.primary {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-[10px] px-4 py-2 font-medium transition;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.secondary {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-[10px] border px-4 py-2 font-medium transition;
+  border-color: var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.secondary:hover {
+  background: var(--surface-2);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-bold;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
