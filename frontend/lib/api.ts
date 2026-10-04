@@ -1,0 +1,3 @@
+const base=process.env.NEXT_PUBLIC_API_URL||'http://localhost:8000';
+export async function api(path:string,options:RequestInit={}){const token=typeof window!=='undefined'?localStorage.getItem('token'):null;const headers:any={...(options.headers||{})};if(token)headers.Authorization=`Bearer ${token}`;if(options.body && !(options.body instanceof FormData))headers['Content-Type']='application/json';const r=await fetch(base+path,{...options,headers});if(!r.ok)throw new Error((await r.json().catch(()=>({detail:'Request failed'}))).detail||'Request failed');return r.json()}
+export const post=(path:string,body:any)=>api(path,{method:'POST',body:JSON.stringify(body)});

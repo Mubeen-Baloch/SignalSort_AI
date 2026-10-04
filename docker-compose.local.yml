@@ -1,0 +1,18 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: signalsort
+      POSTGRES_USER: signalsort
+      POSTGRES_PASSWORD: signalsort_local
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U signalsort -d signalsort"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - signalsort_pgdata:/var/lib/postgresql/data
+volumes:
+  signalsort_pgdata:

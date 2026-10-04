@@ -1,0 +1,9 @@
+{
+  "fallback": true,
+  "description": "The seed script uses deterministic local categorization and 384-dimensional fallback embeddings when no Llama API key or FastEmbed runtime is available. This preserves the demo flow on free-tier deployments.",
+  "priority_message": {
+    "contains": "Cerebral Palsy healthcare app",
+    "category": "Opportunity/Collaboration",
+    "minimum_healthcare_intent_score": 0.94
+  }
+}
